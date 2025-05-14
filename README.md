@@ -1,9 +1,5 @@
 # Welcome to my personal portfolio
 
-## Project info
-
-**URL**: https://lovable.dev/projects/42c806eb-4a73-422d-bce9-f39ea9290f67
-
 ## How can I edit this code?
 
 
