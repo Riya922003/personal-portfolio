@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import SocialLinks from './SocialLinks';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
