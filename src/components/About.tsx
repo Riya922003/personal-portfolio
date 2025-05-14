@@ -4,8 +4,9 @@ import SocialLinks from './SocialLinks';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { Card, CardContent } from './ui/card';
 import { AspectRatio } from './ui/aspect-ratio';
-import { GraduationCap, Book, User, Calendar, Clock } from 'lucide-react';
+import { GraduationCap, Book, User, Calendar, Clock, Palette, Code, Database, Rocket, Star } from 'lucide-react';
 import { Separator } from './ui/separator';
+import { Badge } from './ui/badge';
 
 const About = () => {
   const [activeTab, setActiveTab] = useState<'bio' | 'education' | 'interests'>('bio');
@@ -32,12 +33,40 @@ const About = () => {
   ];
 
   const interests = [
-    "Artificial Intelligence",
-    "Web Development",
-    "UI/UX Design",
-    "Reading Tech Blogs",
-    "Open Source Contribution"
+    { 
+      name: "Artificial Intelligence",
+      icon: <Database className="h-5 w-5" />,
+      color: "from-purple-500 to-indigo-500"
+    },
+    { 
+      name: "Web Development",
+      icon: <Code className="h-5 w-5" />,
+      color: "from-blue-500 to-cyan-500"
+    },
+    { 
+      name: "UI/UX Design",
+      icon: <Palette className="h-5 w-5" />,
+      color: "from-pink-500 to-rose-500"
+    },
+    { 
+      name: "Reading Tech Blogs",
+      icon: <Book className="h-5 w-5" />,
+      color: "from-amber-500 to-orange-500"
+    },
+    { 
+      name: "Open Source Contribution",
+      icon: <Star className="h-5 w-5" />,
+      color: "from-emerald-500 to-green-500"
+    }
   ];
+
+  const quotes = [
+    { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+    { text: "Innovation distinguishes between a leader and a follower.", author: "Steve Jobs" },
+    { text: "Design is not just what it looks like. Design is how it works.", author: "Steve Jobs" }
+  ];
+
+  const [currentQuote, setCurrentQuote] = useState(0);
 
   const renderContent = () => {
     switch(activeTab) {
@@ -107,21 +136,51 @@ const About = () => {
       case 'interests':
         return (
           <div className="animate-fade-in">
-            <div className="flex flex-wrap gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
               {interests.map((interest, index) => (
-                <span 
+                <div 
                   key={index} 
-                  className="px-3 py-1.5 bg-gradient-to-r from-portfolio-lightpurple to-portfolio-lightblue 
-                          text-portfolio-darkpurple rounded-full text-sm font-medium
-                          transition-transform hover:scale-105"
+                  className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
-                  {interest}
-                </span>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${interest.color} opacity-80 group-hover:opacity-90 transition-opacity`}></div>
+                  <div className="relative p-5 text-white h-full flex flex-col justify-between">
+                    <div className="flex items-center mb-3">
+                      <div className="p-2 bg-white/20 rounded-full mr-3">
+                        {interest.icon}
+                      </div>
+                      <h4 className="font-semibold">{interest.name}</h4>
+                    </div>
+                    <div className="mt-2 flex justify-end">
+                      <Rocket className="opacity-50 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all" size={18} />
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
-            <p className="mt-4 text-gray-600 italic">
-              "The only way to do great work is to love what you do." - Steve Jobs
-            </p>
+            
+            <div className="mt-8 bg-gray-50 rounded-xl p-6 shadow-inner relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-portfolio-purple to-portfolio-blue"></div>
+              <div className="pl-4">
+                <p className="text-gray-700 italic text-lg font-serif relative">
+                  "{quotes[currentQuote].text}"
+                  <span className="absolute -left-4 top-0 text-4xl text-portfolio-purple opacity-20">"</span>
+                </p>
+                <p className="mt-2 text-right text-portfolio-darkpurple font-medium">
+                  - {quotes[currentQuote].author}
+                </p>
+              </div>
+              
+              <div className="flex justify-center mt-4 space-x-2">
+                {quotes.map((_, index) => (
+                  <button 
+                    key={index} 
+                    onClick={() => setCurrentQuote(index)}
+                    className={`w-2 h-2 rounded-full transition-all ${currentQuote === index ? 'bg-portfolio-purple w-6' : 'bg-gray-300'}`}
+                    aria-label={`Quote ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         );
     }
