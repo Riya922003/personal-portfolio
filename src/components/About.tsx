@@ -4,7 +4,8 @@ import SocialLinks from './SocialLinks';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { Card, CardContent } from './ui/card';
 import { AspectRatio } from './ui/aspect-ratio';
-import { GraduationCap, Book, User } from 'lucide-react';
+import { GraduationCap, Book, User, Calendar, Clock } from 'lucide-react';
+import { Separator } from './ui/separator';
 
 const About = () => {
   const [activeTab, setActiveTab] = useState<'bio' | 'education' | 'interests'>('bio');
@@ -13,17 +14,20 @@ const About = () => {
     {
       level: "Primary Education",
       institution: "XYZ School",
-      period: "2007-2015"
+      period: "2007-2015",
+      description: "Completed primary education with emphasis on fundamental skills development."
     },
     {
       level: "Senior Secondary Education",
       institution: "PQR School",
-      period: "2015-2019"
+      period: "2015-2019",
+      description: "Focused on computer science fundamentals and mathematics."
     },
     {
       level: "Post Graduation (In Progress)",
       institution: "VIT Bhopal University",
-      period: "2020-Present"
+      period: "2020-Present",
+      description: "Pursuing B.Tech in Computer Science with specialization in AI and ML."
     }
   ];
 
@@ -57,26 +61,47 @@ const About = () => {
         );
       case 'education':
         return (
-          <div className="space-y-4 animate-fade-in">
-            {education.map((item, index) => (
-              <div 
-                key={index} 
-                className="flex flex-col p-4 rounded-lg bg-white border border-gray-100 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-portfolio-lightpurple flex items-center justify-center">
-                    <GraduationCap className="h-5 w-5 text-portfolio-purple" />
+          <div className="space-y-6 animate-fade-in px-2">
+            <div className="relative">
+              {/* Timeline line */}
+              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-portfolio-purple to-portfolio-blue"></div>
+              
+              {/* Timeline items */}
+              {education.map((item, index) => (
+                <div 
+                  key={index} 
+                  className={`relative ml-14 mb-8 ${index === education.length - 1 ? '' : 'pb-6'}`}
+                >
+                  {/* Timeline dot */}
+                  <div className="absolute -left-14 flex items-center justify-center">
+                    <div className="h-12 w-12 rounded-full bg-white border-2 border-portfolio-purple flex items-center justify-center shadow-md z-10">
+                      {index === education.length - 1 ? 
+                        <Clock className="h-6 w-6 text-portfolio-purple" /> : 
+                        <Calendar className="h-6 w-6 text-portfolio-purple" />
+                      }
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-portfolio-purple font-medium">{item.level}</h4>
-                    <div className="flex justify-between">
-                      <span className="text-sm text-gray-500">{item.period}</span>
-                      <span className="font-medium text-gray-800">{item.institution}</span>
+                  
+                  {/* Content card */}
+                  <div className="p-5 rounded-lg bg-white border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div className="flex flex-col">
+                      <div className="flex items-center gap-2">
+                        <GraduationCap className="h-5 w-5 text-portfolio-purple" />
+                        <h4 className="text-lg font-semibold text-portfolio-darkpurple">{item.level}</h4>
+                      </div>
+                      <div className="mt-2">
+                        <p className="font-medium text-gray-800">{item.institution}</p>
+                        <div className="flex items-center text-sm text-gray-500 mt-1">
+                          <Calendar className="h-4 w-4 mr-1" />
+                          <span>{item.period}</span>
+                        </div>
+                      </div>
+                      <p className="mt-3 text-gray-700">{item.description}</p>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         );
       case 'interests':
