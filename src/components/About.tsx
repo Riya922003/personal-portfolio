@@ -148,8 +148,12 @@ const About = () => {
                 <div className="text-center">
                   <h3 className="text-xl font-semibold mb-1 text-portfolio-darkpurple">Riya Gupta</h3>
                   <p className="text-gray-500 text-sm mb-4">Computer Science Student</p>
-                  <div className="mt-6">
-                    <h4 className="text-sm font-medium mb-3 text-gray-800">Connect with me</h4>
+                  <div className="mt-6 mb-4">
+                    <div className="relative mb-6">
+                      <span className="bg-gradient-to-r from-portfolio-purple to-portfolio-blue px-6 py-2 rounded-full text-white font-medium shadow-md">
+                        Connect with me
+                      </span>
+                    </div>
                     <SocialLinks />
                   </div>
                 </div>
