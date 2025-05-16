@@ -42,7 +42,7 @@ const Hero = () => {
               {/* Inner circle with image */}
               <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-white shadow-xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  src="https://i.postimg.cc/gJqf9hFN/profile.jpg" 
                   alt="Riya Gupta"
                   className="w-full h-full object-cover" 
                 />
