@@ -13,21 +13,19 @@ const About = () => {
   const education = [
     {
       level: "Primary Education",
-      institution: "XYZ School",
-      period: "2007-2015",
-      description: "Completed primary education with emphasis on fundamental skills development."
+      institution: "City Montessori School",
+      period: "2007-2018",
+
     },
     {
       level: "Senior Secondary Education",
-      institution: "PQR School",
-      period: "2015-2019",
-      description: "Focused on computer science fundamentals and mathematics."
+      institution: "RAN public School",
+      period: "2015-2021",
     },
     {
-      level: "Post Graduation (In Progress)",
+      level: "Under Graduation (In Progress)",
       institution: "VIT Bhopal University",
-      period: "2020-Present",
-      description: "Pursuing B.Tech in Computer Science with specialization in AI and ML."
+      period: "2022-Present",
     }
   ];
 
@@ -48,7 +46,7 @@ const About = () => {
       color: "from-pink-500 to-rose-500"
     },
     { 
-      name: "Reading Tech Blogs",
+      name: "3D designing and printing",
       icon: <Book className="h-5 w-5" />,
       color: "from-amber-500 to-orange-500"
     },
