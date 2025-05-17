@@ -22,8 +22,10 @@ const Hero = () => {
           </h3>
           <p className="text-gray-600 max-w-lg text-lg">
             As a 3rd-year student pursuing a B.Tech in Computer Science, 
-            I have honed my skills both as a creative designer and a 
-            hardworking individual.
+            I have honed in problem solving and programming skills.
+            I am passionate about creating innovative solutions and products.
+            I am always eager to learn and grow, and I am excited to take on new challenges.
+            I am looking for opportunities to apply my skills and knowledge in a real-world setting.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center pt-4">
