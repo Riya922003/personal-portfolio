@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { useState } from 'react';
+=======
+  import { useState } from 'react';
+>>>>>>> 442a87108123d090b5bd7d39a7e5b224c4985eed
 import { Code, Database, Globe, Palette, Coffee, Layers } from 'lucide-react';
 
 const TechStack = () => {
