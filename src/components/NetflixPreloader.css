@@ -1,0 +1,68 @@
+/* Netflix Preloader Custom Animations */
+
+@keyframes netflixGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(229, 9, 20, 0.5);
+  }
+}
+
+@keyframes progressPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.netflix-text {
+  animation: netflixGlow 2s ease-in-out infinite;
+}
+
+.progress-bar {
+  animation: progressPulse 2s infinite;
+}
+
+.floating-element {
+  animation: float 3s ease-in-out infinite;
+}
+
+.fade-in-scale {
+  animation: fadeInScale 0.8s ease-out forwards;
+}
+
+/* Custom scrollbar for the preloader (if needed) */
+.netflix-preloader::-webkit-scrollbar {
+  display: none;
+}
+
+.netflix-preloader {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
